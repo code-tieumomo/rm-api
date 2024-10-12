@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Account;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,11 +12,31 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        Account::create([
+            'email' => 'admin@example.com',
+            'password' => bcrypt('password'),
+            'full_name' => 'Admin',
+            'sdt' => '0123456789',
+            'image_url' => 'https://api.dicebear.com/9.x/avataaars-neutral/svg?seed=Brooklynn',
+            'role' => 1,
+        ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        Account::create([
+            'email' => 'manager@example.com',
+            'password' => bcrypt('password'),
+            'full_name' => 'Manager',
+            'sdt' => '0123456789',
+            'image_url' => 'https://api.dicebear.com/9.x/avataaars-neutral/svg?seed=Jessica',
+            'role' => 2,
+        ]);
+
+        Account::create([
+            'email' => 'waiter@example.com',
+            'password' => bcrypt('password'),
+            'full_name' => 'Waiter',
+            'sdt' => '0123456789',
+            'image_url' => 'https://api.dicebear.com/9.x/avataaars-neutral/svg?seed=Jocelyn',
+            'role' => 3,
         ]);
     }
 }
