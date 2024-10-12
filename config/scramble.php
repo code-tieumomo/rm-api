@@ -76,10 +76,7 @@ return [
      * ],
      * ```
      */
-    'servers' => [
-        'Local' => 'api',
-        'Prod' => 'https://rm-api.imtaedu.com/api',
-    ],
+    'servers' => null,
 
     'middleware' => [
         'web',
