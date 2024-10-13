@@ -10,6 +10,9 @@ class AuthController extends Controller
 {
     use APIResponse;
 
+    /**
+     * Get the authenticated account.
+     */
     public function user()
     {
         $user = Auth::user();
@@ -18,6 +21,8 @@ class AuthController extends Controller
     }
 
     /**
+     * Login
+     *
      * @unauthenticated
      */
     public function login(Request $request)

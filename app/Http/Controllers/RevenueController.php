@@ -15,7 +15,7 @@ class RevenueController extends Controller
     use APIResponse;
 
     /**
-     * @throws DateMalformedPeriodStringException
+     * Get revenue by date range.
      */
     public function revenueByDate(Request $request)
     {
