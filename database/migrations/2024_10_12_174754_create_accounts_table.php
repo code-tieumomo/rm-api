@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('full_name')->nullable();
             $table->string('sdt')->nullable();
-            $table->string('image_url')->nullable();
+            $table->text('image_url')->nullable();
             $table->integer('role')->nullable();
             $table->timestamps();
         });

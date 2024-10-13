@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->foreignId('id_type')->nullable();
             $table->text('information')->nullable();
-            $table->string('image_url')->nullable();
+            $table->text('image_url')->nullable();
             $table->timestamps();
 
             $table->foreign('id_type')->references('id')->on('dish_types');
