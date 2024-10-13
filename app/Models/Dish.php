@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dish extends Model
 {
-    use HasFactory;
+    protected $table = 'dishes';
+
+    protected $fillable = [
+        'name',
+        'price',
+        'status',
+        'id_type',
+        'information',
+        'image_url',
+    ];
 }

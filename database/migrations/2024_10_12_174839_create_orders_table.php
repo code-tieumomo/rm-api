@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('table_id');
-            $table->foreignId('dish_id');
-            $table->integer('amount');
+            $table->foreignId('table_id')->nullable();
+            $table->foreignId('dish_id')->nullable();
+            $table->integer('amount')->nullable();
             $table->timestamps();
 
             $table->foreign('table_id')->references('id')->on('tables');

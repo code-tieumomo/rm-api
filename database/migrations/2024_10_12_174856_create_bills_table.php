@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id');
-            $table->integer('status');
-            $table->decimal('tong_tien', 15);
+            $table->foreignId('order_id')->nullable();
+            $table->integer('status')->nullable();
+            $table->decimal('tong_tien', 15)->nullable();
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders');

@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->decimal('price', 15);
-            $table->string('status');
-            $table->foreignId('id_type');
-            $table->text('information');
-            $table->string('image_url');
+            $table->string('name')->nullable();
+            $table->decimal('price', 15)->nullable();
+            $table->string('status')->nullable();
+            $table->foreignId('id_type')->nullable();
+            $table->text('information')->nullable();
+            $table->string('image_url')->nullable();
             $table->timestamps();
 
             $table->foreign('id_type')->references('id')->on('dish_types');
