@@ -33,8 +33,9 @@ class AccountController extends Controller
             'role' => 'required|in:1,2,3',
         ]);
 
-        $account = Account::create($request->except('image_url'));
+        $account = Account::create($request->except(['image_url', 'password']));
         $account->image_url = "https://api.dicebear.com/9.x/avataaars-neutral/svg/?seed={$account->id}";
+        $account->password = bcrypt($request->password);
 
         return $this->success($account, 'Account created successfully', 201);
     }
@@ -66,13 +67,16 @@ class AccountController extends Controller
 
         $request->validate([
             'email' => 'required|email|unique:accounts,email,' . $id,
-            'password' => 'required',
+            'password' => 'nullable',
             'full_name' => 'required',
             'sdt' => 'nullable',
             'role' => 'required|in:1,2,3',
         ]);
 
-        $account->update($request->except('image_url'));
+        $account->update($request->except(['image_url', 'password']));
+        if ($request->password) {
+            $account->password = bcrypt($request->password);
+        }
 
         return $this->success($account, 'Account updated successfully');
     }
