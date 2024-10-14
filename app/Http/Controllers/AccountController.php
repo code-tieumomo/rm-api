@@ -36,6 +36,7 @@ class AccountController extends Controller
         $account = Account::create($request->except(['image_url', 'password']));
         $account->image_url = "https://api.dicebear.com/9.x/avataaars-neutral/svg/?seed={$account->id}";
         $account->password = bcrypt($request->password);
+        $account->save();
 
         return $this->success($account, 'Account created successfully', 201);
     }
@@ -76,6 +77,7 @@ class AccountController extends Controller
         $account->update($request->except(['image_url', 'password']));
         if ($request->password) {
             $account->password = bcrypt($request->password);
+            $account->save();
         }
 
         return $this->success($account, 'Account updated successfully');
